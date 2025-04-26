@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #001a33;
+  --foreground: #ffffff;
+  --primary-gradient: linear-gradient(135deg, #001a33 0%, #003366 100%);
+  --card-gradient: linear-gradient(145deg, #e6f0ff 0%, #d1e3ff 100%);
+  --button-gradient: linear-gradient(to right, #1a56db, #3366cc);
+  --highlight-gradient: linear-gradient(90deg, rgba(26,86,219,0.1) 0%, rgba(51,102,204,0.2) 100%);
 }
 
 @theme inline {
@@ -14,13 +18,48 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #001a33;
+    --foreground: #ffffff;
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--primary-gradient);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="checkbox"] {
+  accent-color: #1a56db;
+}
+
+/* Glossy card effects */
+.glossy-card {
+  background: var(--card-gradient);
+  box-shadow: 0 8px 32px rgba(0, 26, 51, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glossy-card-dark {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glossy-button {
+  background: var(--button-gradient);
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glossy-button:hover {
+  box-shadow: 0 6px 16px rgba(26, 86, 219, 0.4);
+  transform: translateY(-1px);
+}
+
+.highlight-panel {
+  background: var(--highlight-gradient);
+  backdrop-filter: blur(8px);
 }
