@@ -1,4 +1,4 @@
-const PDF_SERVER_URL = 'http://localhost:4000';
+const PDF_SERVER_URL = 'https://hem-server.onrender.com';
 
 export interface SearchResult {
   source: string;
