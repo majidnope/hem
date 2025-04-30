@@ -81,7 +81,7 @@ export default function Home() {
             >
               <Input
                 variant="glossy"
-                size="pill"
+                inputSize="pill"
                 placeholder="Search by topic, infrastructure type, or ask a question..."
                 className="pl-12 pr-4"
                 value={query}

@@ -11,7 +11,7 @@ const inputVariants = cva(
         glossy: "bg-white/10 border-white/20 text-white backdrop-blur-md shadow-inner",
         filled: "bg-gray-100 border-gray-200 text-gray-800",
       },
-      size: {
+      inputSize: {
         default: "h-10 px-4 py-2",
         sm: "h-8 px-3 text-xs",
         lg: "h-12 px-6",
@@ -20,21 +20,26 @@ const inputVariants = cva(
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
+      inputSize: "default",
     },
   }
 );
 
+export type InputSize = 'default' | 'sm' | 'lg' | 'pill';
+export type InputVariant = 'default' | 'glossy' | 'filled';
+
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+    variant?: InputVariant;
+    inputSize?: InputSize;
+  }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, size, type, ...props }, ref) => {
+  ({ className, variant, inputSize, type, ...props }, ref) => {
     return (
       <input
         type={type}
-        className={cn(inputVariants({ variant, size }), className)}
+        className={cn(inputVariants({ variant, inputSize }), className)}
         ref={ref}
         {...props}
       />
